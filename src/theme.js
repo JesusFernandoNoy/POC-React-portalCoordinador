@@ -5,6 +5,12 @@ import { createTheme } from "@mui/material/styles";
 export const tokens = (mode) => ({
   ...(mode === "dark"
     ? {
+        white: {
+          100: "#FFFFFF",        
+        },
+        black: {
+          100: "#000000",        
+        },
         grey: {
           100: "#e0e0e0",
           200: "#c2c2c2",
@@ -64,6 +70,12 @@ export const tokens = (mode) => ({
         },
       }
     : {
+        white: {
+          100: "#FFFFFF",        
+        },
+        black: {
+          100: "#000000",        
+        },
         grey: {
           100: "#141414",
           200: "#292929",

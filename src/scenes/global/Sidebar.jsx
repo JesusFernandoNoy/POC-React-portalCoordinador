@@ -15,7 +15,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.grey[100],
+        color: colors.black[100],
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -35,7 +35,7 @@ const Sidebar = () => {
     <Box
       sx={{        
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[500]} !important`,
+          background: `${colors.white[100]} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -44,22 +44,22 @@ const Sidebar = () => {
           padding: "5px 35px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#868dfb !important",
+          color: "#0513f5 !important",
         },
         "& .pro-menu-item.active": {
-          color: "#6870fa !important",
+          color: "#020a99 !important",
         },
       }}
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
-          <MenuItem
+          <MenuItem 
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "10px 0 20px 0",
-              color: colors.grey[100],
+              color: colors.black[100],
             }}
           >
             {!isCollapsed && (
@@ -69,11 +69,15 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.grey[100]}>
+                <Typography variant="h3" color={colors.black[100]}>
                   TotalCare360
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                  <MenuOutlinedIcon />
+                  <MenuOutlinedIcon
+                      style={{
+                        color: colors.black[100],
+                      }} 
+                   />
                 </IconButton>
               </Box>
             )}
@@ -93,13 +97,13 @@ const Sidebar = () => {
               <Box textAlign="center">
                 <Typography
                   variant="h2"
-                  color={colors.grey[100]}
+                  color={colors.black[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
                   Juan Pablo Rodriguez
                 </Typography>
-                <Typography variant="h5" color={colors.greenAccent[500]}>
+                <Typography variant="h5" color={colors.grey[300]}>
                   Coordinador de Cuidado
                 </Typography>
               </Box>
@@ -117,7 +121,7 @@ const Sidebar = () => {
 
             <Typography
               variant="h6"
-              color={colors.grey[300]}
+              color={colors.black[100]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Data
