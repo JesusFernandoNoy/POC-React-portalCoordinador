@@ -8,7 +8,7 @@ const Header = ({ title, subtitle }) => {
     <Box mb="30px">
       <Typography
         variant="h2"
-        color={colors.grey[500]}
+        color={colors.black[100]}
         fontWeight="bold"
         sx={{ m: "0 0 5px 0" }}
       >

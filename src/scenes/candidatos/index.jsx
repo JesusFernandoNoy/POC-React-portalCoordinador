@@ -119,7 +119,7 @@ const Candidatos = () => {
            },
            "& .MuiDataGrid-footerContainer": {
              borderTop: "none",
-             backgroundColor: colors.black[100],
+             backgroundColor: colors.white[100],
            },
            "& .MuiCheckbox-root": {
              color: `${colors.greenAccent[200]} !important`,
