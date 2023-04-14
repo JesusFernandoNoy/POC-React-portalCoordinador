@@ -2,9 +2,6 @@ import { Box, Typography, useTheme, Tab, Tabs,Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -106,7 +103,7 @@ const Gestion = () => {
   };
 
   return (
-    <Box m="20px">
+    <Box m="10px" width={1120} borderRadius={3} paddingBottom={5}>
 
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -124,7 +121,7 @@ const Gestion = () => {
         <Tab label="Candidatos" />        
         <Tab label="Vinculados" />        
       </Tabs>      
-      <Box sx={{ padding: 0 }}>
+      <Box sx={{ padding: 2 }}>
         {tabIndex === 0 && (
          <Box
          m="10px 0 0 0"
@@ -138,18 +135,18 @@ const Gestion = () => {
              borderBottom: "none",
            },
            "& .name-column--cell": {
-             color: colors.greenAccent[300],
+             color: colors.black[100],
            },
            "& .MuiDataGrid-columnHeaders": {
-             backgroundColor: colors.blueAccent[700],
+             backgroundColor: colors.black[100],
              borderBottom: "none",
            },
            "& .MuiDataGrid-virtualScroller": {
-             backgroundColor: colors.primary[400],
+             backgroundColor: colors.white[100],
            },
            "& .MuiDataGrid-footerContainer": {
              borderTop: "none",
-             backgroundColor: colors.blueAccent[700],
+             backgroundColor: colors.black[100],
            },
            "& .MuiCheckbox-root": {
              color: `${colors.greenAccent[200]} !important`,

@@ -16,6 +16,9 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       active={selected === title}
       style={{
         color: colors.black[100],
+        background: colors.white[100],
+        borderRadius: 10, 
+        padding: theme.spacing(1),     
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -35,7 +38,7 @@ const Sidebar = () => {
     <Box
       sx={{        
         "& .pro-sidebar-inner": {
-          background: `${colors.white[100]} !important`,
+          background: `${colors.primary[500]} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -59,7 +62,7 @@ const Sidebar = () => {
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "10px 0 20px 0",
-              color: colors.black[100],
+              color: colors.white[100],
             }}
           >
             {!isCollapsed && (
@@ -69,13 +72,13 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h3" color={colors.black[100]}>
+                <Typography variant="h3" color={colors.white[100]}>
                   TotalCare360
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon
                       style={{
-                        color: colors.black[100],
+                        color: colors.white[100],
                       }} 
                    />
                 </IconButton>
@@ -97,7 +100,7 @@ const Sidebar = () => {
               <Box textAlign="center">
                 <Typography
                   variant="h2"
-                  color={colors.black[100]}
+                  color={colors.white[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
@@ -121,7 +124,7 @@ const Sidebar = () => {
 
             <Typography
               variant="h6"
-              color={colors.black[100]}
+              color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Data
