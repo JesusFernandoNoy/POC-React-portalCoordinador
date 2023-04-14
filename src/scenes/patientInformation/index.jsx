@@ -3,14 +3,13 @@ import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 
 
-
-const PatientInformation = () => {
+const PatientInformation = ({patientId}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   // ✅ Find the first object that matches a condition
-  const patientInfo = mockDataContacts.find(obj => {
-    return obj.id === 1;
+  const patientInfo = mockDataContacts.find(obj => {  
+    return obj.id === patientId;
   });
 
   return (    

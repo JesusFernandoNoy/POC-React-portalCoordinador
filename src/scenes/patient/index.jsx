@@ -5,17 +5,15 @@ import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import Header from "../../components/Header";
 import PatienActivity from "../../scenes/patientActivities";
 import PatienInformation from "../../scenes/patientInformation";
+import { useLocation } from "react-router-dom";
 
 
 const Patient = () => {
+  const location = useLocation();
+  
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
-  // ✅ Find the first object that matches a condition
-  const patientInfo = mockDataContacts.find(obj => {
-    return obj.id === 1;
-  });
-
+  
   return (
     <Box m="20px">
       {/* HEADER */}
@@ -32,7 +30,7 @@ const Patient = () => {
       >      
 
         {/* ROW 1 */ }           
-        <PatienInformation />
+        <PatienInformation patientId={location.state.patientid}/>
         <Box
           gridColumn="span 8"
           gridRow="span 2"
