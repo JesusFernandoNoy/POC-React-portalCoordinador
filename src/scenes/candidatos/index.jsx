@@ -119,7 +119,7 @@ const Candidatos = () => {
            },
            "& .MuiDataGrid-footerContainer": {
              borderTop: "none",
-             backgroundColor: colors.white[100],
+             backgroundColor: colors.black[100],
            },
            "& .MuiCheckbox-root": {
              color: `${colors.greenAccent[200]} !important`,
@@ -128,8 +128,8 @@ const Candidatos = () => {
              color: "black",
            },
            "& .css-bvbdia-MuiTablePagination-root":{
-            color: "black",
-          },
+             color: "black",
+           },
          }}
        >
          <DataGrid rows={mockDataTeam} columns={columns} />
