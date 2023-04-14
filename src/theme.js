@@ -74,7 +74,7 @@ export const tokens = (mode) => ({
           100: "#FFFFFF",        
         },
         white: {
-          100: "#000000",        
+          100: "#666666",        
         },
         grey: {
           100: "#141414",
@@ -164,7 +164,7 @@ export const themeSettings = (mode) => {
               main: colors.primary[100],
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.greenAccent[100],
             },
             neutral: {
               dark: colors.grey[700],

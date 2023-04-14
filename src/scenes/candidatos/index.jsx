@@ -111,7 +111,7 @@ const Candidatos = () => {
              color: colors.black[100],
            },
            "& .MuiDataGrid-columnHeaders": {
-             backgroundColor: colors.black[100],
+             backgroundColor: colors.white[100],
              borderBottom: "none",
            },
            "& .MuiDataGrid-virtualScroller": {
@@ -119,11 +119,17 @@ const Candidatos = () => {
            },
            "& .MuiDataGrid-footerContainer": {
              borderTop: "none",
-             backgroundColor: colors.black[100],
+             backgroundColor: colors.white[100],
            },
            "& .MuiCheckbox-root": {
              color: `${colors.greenAccent[200]} !important`,
            },
+           "& .css-1foozea-MuiDataGrid-root":{
+             color: "black",
+           },
+           "& .css-bvbdia-MuiTablePagination-root":{
+            color: "black",
+          },
          }}
        >
          <DataGrid rows={mockDataTeam} columns={columns} />
