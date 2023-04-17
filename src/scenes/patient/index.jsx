@@ -15,7 +15,7 @@ const Patient = () => {
   const colors = tokens(theme.palette.mode);
   
   return (
-    <Box m="20px" width={900} borderRadius={3} paddingBottom={20} sx={{ background: colors.white[100]}}>
+    <Box m="0 60px 0 5px" borderRadius={3} paddingBottom={20} sx={{ background: colors.white[100]}}>
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="Gestión de Pacientes" subtitle="" />        

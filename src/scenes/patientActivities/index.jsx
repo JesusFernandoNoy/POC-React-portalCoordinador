@@ -17,13 +17,13 @@ const PatienActivities = () => {
         {
           field: "Frecuency",
           headerName: "Frecuencia",    
-          width: 150,  
+          width: 100,  
           cellClassName: "name-column--cell",
         },
         {
           field: "dateAppointment",
           headerName: "Fecha última cita",
-          width: 150,               
+          width: 100,               
           cellClassName: "name-column--cell",
         },
         {
@@ -35,7 +35,7 @@ const PatienActivities = () => {
         {
           field: "ActivityState",          
           headerName: "Estado de la Actividad", 
-          width: 150,      
+          width: 80,      
           cellClassName: "name-column--cell",
         }   
       ];
@@ -43,9 +43,8 @@ const PatienActivities = () => {
       
       return (
         <Box
-         m="10px 0 0 0"
-         height="40vh"
-         width="75vh"         
+         m="10px 10px 0 0"
+         height="60vh"                  
          sx={{
            "& .MuiDataGrid-root": {
              border: "none",
@@ -54,14 +53,14 @@ const PatienActivities = () => {
              borderBottom: "none",
            },
            "& .name-column--cell": {
-             color: colors.greenAccent[300],
+             color: colors.black[100],
            },
            "& .MuiDataGrid-columnHeaders": {
              backgroundColor: colors.black[100],
              borderBottom: "none",
            },
            "& .MuiDataGrid-virtualScroller": {
-             backgroundColor: colors.blueAccent[800],
+             backgroundColor: colors.white[100],
            },
            "& .MuiDataGrid-footerContainer": {
              borderTop: "none",

@@ -5,7 +5,7 @@ export const mockDataTeam = [
     id: 1,
     Hemoglobina:"12.5%",
     priority:"Riesgo IV c",
-    name: "Jon Snow",
+    name: "Jon Snow nombre muy largo para pintar",
     idType:"CC",
     numId:"52.323.597",
     email: "jonsnow@gmail.com",
