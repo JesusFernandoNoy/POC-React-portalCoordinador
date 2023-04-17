@@ -16,7 +16,7 @@ const Gestion = () => {
   };
 
   return (
-    <Box m="0 0 0 20px" width={1130} borderRadius={3} paddingBottom={5} sx={{ background: colors.white[100]}}>
+    <Box m="0 0 0 20px" width={900} borderRadius={3} paddingBottom={5} sx={{ background: colors.white[100]}}>
 
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">

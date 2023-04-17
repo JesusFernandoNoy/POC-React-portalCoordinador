@@ -16,7 +16,7 @@ const PatientInformation = ({patientId}) => {
         <Box
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.white[100]}
           overflow="auto"
         >
           <Box
@@ -27,10 +27,13 @@ const PatientInformation = ({patientId}) => {
             colors={colors.grey[100]}
             p="15px"
           >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+            <Typography color={colors.black[100]} variant="h4" fontWeight="600">
               Datos del paciente
-            </Typography>
+            </Typography>            
           </Box>
+          <Typography color={colors.blueAccent[500]} variant="h4" fontWeight="600">
+              Básicos
+            </Typography>
           {patientInfo && (
             <Box            
             display="flex"
@@ -40,26 +43,32 @@ const PatientInformation = ({patientId}) => {
             p="15px"
           >
             <Box>                
-              <Typography color={colors.grey[100]}>
+              <Typography color={colors.black[100]}>
                 Nombre: {patientInfo.name}                                   
               </Typography>  
-              <Typography color={colors.grey[100]}>
-                Email: {patientInfo.email}                                   
-              </Typography> 
-              <Typography color={colors.grey[100]}>
-                Edad: {patientInfo.age}                                   
+              <Typography color={colors.black[100]}>
+                Tipo de documento: {patientInfo.documentType}                                   
+              </Typography>
+              <Typography color={colors.black[100]}>
+                Número de documento: {patientInfo.documentNumber}                                   
+              </Typography>
+              <Typography color={colors.black[100]}>
+                Fecha de nacimiento: {patientInfo.dateOfBirth}                                   
               </Typography>  
-              <Typography color={colors.grey[100]}>
+              <Typography color={colors.black[100]}>
+                Edad: {patientInfo.age} años                                   
+              </Typography>  
+              <Typography color={colors.black[100]}>
                 Telefono: {patientInfo.phone}                                   
               </Typography>
-              <Typography color={colors.grey[100]}>
-                Dirección: {patientInfo.address}                                   
+              <Typography color={colors.black[100]}>
+                sexo: {patientInfo.sexType}                                   
               </Typography>    
-              <Typography color={colors.grey[100]}>
+              <Typography color={colors.black[100]}>
                 Ciudad: {patientInfo.city}          s                         
               </Typography> 
-              <Typography color={colors.grey[100]}>
-                zipCode: {patientInfo.zipCode}                                   
+              <Typography color={colors.black[100]}>
+                Estado civil: {patientInfo.maritalStatus}                                   
               </Typography>       
             </Box>            
           </Box>

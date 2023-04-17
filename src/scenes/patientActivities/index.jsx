@@ -40,11 +40,12 @@ const PatienActivities = () => {
         }   
       ];
 
+      
       return (
         <Box
          m="10px 0 0 0"
          height="40vh"
-         width="80vh"
+         width="75vh"         
          sx={{
            "& .MuiDataGrid-root": {
              border: "none",
@@ -56,15 +57,15 @@ const PatienActivities = () => {
              color: colors.greenAccent[300],
            },
            "& .MuiDataGrid-columnHeaders": {
-             backgroundColor: colors.blueAccent[700],
+             backgroundColor: colors.black[100],
              borderBottom: "none",
            },
            "& .MuiDataGrid-virtualScroller": {
-             backgroundColor: colors.primary[400],
+             backgroundColor: colors.blueAccent[800],
            },
            "& .MuiDataGrid-footerContainer": {
              borderTop: "none",
-             backgroundColor: colors.blueAccent[700],
+             backgroundColor: colors.black[100],
            },
            "& .MuiCheckbox-root": {
              color: `${colors.greenAccent[200]} !important`,

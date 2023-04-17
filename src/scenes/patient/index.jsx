@@ -15,10 +15,10 @@ const Patient = () => {
   const colors = tokens(theme.palette.mode);
   
   return (
-    <Box m="20px">
+    <Box m="20px" width={900} borderRadius={3} paddingBottom={20} sx={{ background: colors.white[100]}}>
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="Gestión de Pacientes" subtitle="Nombre Paciente" />        
+        <Header title="Gestión de Pacientes" subtitle="" />        
       </Box>
 
       {/* GRID & CHARTS */}
@@ -35,27 +35,33 @@ const Patient = () => {
           gridColumn="span 8"
           gridRow="span 2"
           height="450px"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.white[100]}
         >
           <Box
-            mt="25px"
-            p="0 30px"
+            mt="10px"
+            p="0 0px"
             display="flex "
             justifyContent="space-between"
             alignItems="center"
           >
             <Box>
               <Typography
-                variant="h5"
-                fontWeight="600"
-                color={colors.grey[100]}
+                variant="h4"
+                fontWeight="600"                
+                color={colors.black[100]}
               >
                 Actividades Pendientes
               </Typography>              
             </Box>
             <Box>
               <IconButton>
-                Agendar Actividades
+                <Typography
+                  variant="h4"
+                  fontWeight="600"                
+                  color={colors.black[100]}
+                >
+                  Agendar Actividades
+                </Typography>                
                 <DownloadOutlinedIcon
                   sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
                 />
