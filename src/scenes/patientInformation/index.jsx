@@ -1,11 +1,17 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
-
+import { useNavigate } from "react-router-dom";
 
 const PatientInformation = ({patientId}) => {
+  let navigate = useNavigate();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const handleClick = (event) => { 
+    let path = `/gestion`; 
+    navigate(path);
+  };
 
   // ✅ Find the first object that matches a condition
   const patientInfo = mockDataContacts.find(obj => {  
@@ -19,6 +25,15 @@ const PatientInformation = ({patientId}) => {
           backgroundColor={colors.white[100]}
           overflow="auto"
         >
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={(event) => {
+              handleClick(event);
+            }}
+          >
+            Volver
+          </Button>
           {patientInfo && (  
             <Typography color={colors.blueAccent[600]} variant="h2" fontWeight="700">
               {patientInfo.name} 

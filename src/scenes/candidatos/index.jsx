@@ -9,7 +9,6 @@ const Candidatos = () => {
   let navigate = useNavigate();
 
   const handleClick = (event, cellValues) => {
-    console.log(cellValues.row);    
     let path = `/patient`; 
     navigate(path, {state: {patientid : cellValues.row.id}});
   };
