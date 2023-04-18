@@ -19,7 +19,7 @@ const PatientInformation = ({patientId}) => {
   });
 
   return (    
-        <Box m="5px 10px"
+        <Box m="0px 5px"
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.white[100]}
