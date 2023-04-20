@@ -75,7 +75,7 @@ const Candidatos = () => {
     },
     {
       field: "numId",
-      width: 80,
+      width: 90,
       renderHeader: () => (
         <strong>
           {'Número de Documento'}          
@@ -93,7 +93,7 @@ const Candidatos = () => {
           {'Edad'}          
         </strong>
       ),
-      width: 100,
+      width: 95,
       type: "number",
       headerAlign: "left",
       sortable: false,
@@ -108,7 +108,7 @@ const Candidatos = () => {
           {'Ruta'}          
         </strong>
       ), 
-      width: 70,
+      width: 65,
       sortable: false,
       filterable: false,
       hideable: false,     
