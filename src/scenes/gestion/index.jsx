@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Candidatos from "../../scenes/candidatos";
 import Vinculados from "../../scenes/vinculados";
 import { tokens } from "../../theme";
-import { Height } from "@mui/icons-material";
+
 
 const Gestion = () => {
   const theme = useTheme();

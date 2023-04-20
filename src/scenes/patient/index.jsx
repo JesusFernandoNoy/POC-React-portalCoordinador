@@ -25,7 +25,7 @@ const Patient = () => {
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
+        gridAutoRows="180px"
         gap="20px"
       >      
 

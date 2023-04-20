@@ -2,8 +2,13 @@ import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from 'react'
+
 
 const PatientInformation = ({patientId}) => {
+
+  console.log(patientId); 
+ 
   let navigate = useNavigate();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -14,9 +19,27 @@ const PatientInformation = ({patientId}) => {
   };
 
   // ✅ Find the first object that matches a condition
-  const patientInfo = mockDataContacts.find(obj => {  
+  /*const patientInfo = mockDataContacts.find(obj => {  
     return obj.id === patientId;
-  });
+  });*/
+
+  const dataFetchedRef = useRef(false);
+
+  const [patientData, setPatientData] = useState([]);
+
+  useEffect(() => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+    fetch('http://localhost:8085/patient/id/'+patientId)
+       .then((response) => response.json())
+       .then((data) => {
+          console.log(data);
+          setPatientData(data);
+       })
+       .catch((err) => {
+          console.log(err.message);
+       });
+  }, []);
 
   return (    
         <Box m="0px 5px"
@@ -34,9 +57,9 @@ const PatientInformation = ({patientId}) => {
           >
             Volver
           </Button>
-          {patientInfo && (  
+          {patientData && (  
             <Typography color={colors.blueAccent[600]} variant="h2" fontWeight="700">
-              {patientInfo.name} 
+              {patientData.name +" "+ patientData.lastName} 
               <br />
             </Typography>  
             ) } 
@@ -54,7 +77,7 @@ const PatientInformation = ({patientId}) => {
           <Typography color={colors.blueAccent[500]} variant="h4" fontWeight="600">
               Básicos
             </Typography>
-          {patientInfo && (
+          {patientData && (
             <Box            
             display="flex"
             justifyContent="space-between"
@@ -67,7 +90,7 @@ const PatientInformation = ({patientId}) => {
                   <b>Tipo de documento:</b>                                  
                 </Typography>                
                 <Typography color={colors.black[100]}>
-                  {patientInfo.documentType}                                   
+                  {patientData.documentTypeName}                                   
                 </Typography>    
               </div>            
               <div style={{ display: "flex", alignItems:"center", gap: "0.7rem" }}>
@@ -75,7 +98,7 @@ const PatientInformation = ({patientId}) => {
                   <b>Número de documento:</b>                                    
                 </Typography>
                 <Typography color={colors.black[100]}>
-                  {patientInfo.documentNumber}                                   
+                  {patientData.documentNumber}                                   
                 </Typography>
               </div>
               <div style={{ display: "flex", alignItems:"center", gap: "1.6rem" }}>
@@ -83,7 +106,7 @@ const PatientInformation = ({patientId}) => {
                   <b>Fecha de nacimiento:</b>                                   
                 </Typography>
                 <Typography color={colors.black[100]}>
-                  {patientInfo.dateOfBirth}                                   
+                  {patientData.birthDayFormatter}                                   
                 </Typography>
               </div>
               <div style={{ display: "flex", alignItems:"center", gap: "7.4rem" }}>
@@ -91,7 +114,7 @@ const PatientInformation = ({patientId}) => {
                   <b>Edad:</b>                                   
                 </Typography> 
                 <Typography color={colors.black[100]}>
-                  {patientInfo.age} años                                   
+                  {patientData.age}                                   
                 </Typography> 
               </div> 
               <div style={{ display: "flex", alignItems:"center", gap: "6rem" }}>
@@ -99,7 +122,7 @@ const PatientInformation = ({patientId}) => {
                   <b>Telefono:</b>                                  
                 </Typography>
                 <Typography color={colors.black[100]}>
-                  {patientInfo.phone}                                   
+                  {patientData.phone}                                   
                 </Typography>
               </div>
               <div style={{ display: "flex", alignItems:"center", gap: "7.6rem" }}>
@@ -107,7 +130,7 @@ const PatientInformation = ({patientId}) => {
                   <b>sexo:</b>                                  
                 </Typography>
                 <Typography color={colors.black[100]}>
-                  {patientInfo.sexType}                                   
+                  {patientData.gender}                                   
                 </Typography>
               </div>
               <div style={{ display: "flex", alignItems:"center", gap: "6.7rem" }}>
@@ -115,7 +138,7 @@ const PatientInformation = ({patientId}) => {
                   <b>Ciudad:</b>                         
                 </Typography>
                 <Typography color={colors.black[100]}>
-                  {patientInfo.city}                        
+                  {patientData.city}                        
                 </Typography> 
               </div>    
               <div style={{ display: "flex", alignItems:"center", gap: "5rem" }}>
@@ -123,7 +146,7 @@ const PatientInformation = ({patientId}) => {
                   <b>Estado civil:</b>                                 
                 </Typography>
                 <Typography color={colors.black[100]}>
-                  {patientInfo.maritalStatus}                                   
+                  {patientData.maritalStatus}                                   
                 </Typography>
               </div>                     
             </Box>            

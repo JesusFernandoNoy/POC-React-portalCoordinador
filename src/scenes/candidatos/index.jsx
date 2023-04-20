@@ -1,10 +1,13 @@
-import { Box, Typography, useTheme, Tab, Tabs,Button } from "@mui/material";
+import { Box, useTheme, Button, CircularProgress } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
 import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef} from 'react'
 
-const Candidatos = () => {
+
+
+const Candidatos = () => {  
 
   let navigate = useNavigate();
 
@@ -18,13 +21,13 @@ const Candidatos = () => {
   const columns = [
    
     {
-      field: "Hemoglobina",      
+      field: "hemoglobina",      
       renderHeader: () => (
         <strong>          
           {'Hemoglobina Glicosilada'}                            
         </strong>
       ),
-      width: 100,        
+      width: 90,        
       align: "center",
       sortable: false,
       filterable: false,
@@ -64,7 +67,7 @@ const Candidatos = () => {
           {'Tipo ID'}          
         </strong>
       ),   
-      width: 60,
+      width: 80,
       sortable: false,
       filterable: false,
       hideable: false,     
@@ -72,7 +75,7 @@ const Candidatos = () => {
     },
     {
       field: "numId",
-      width: 110,
+      width: 80,
       renderHeader: () => (
         <strong>
           {'Número de Documento'}          
@@ -90,7 +93,7 @@ const Candidatos = () => {
           {'Edad'}          
         </strong>
       ),
-      width: 50,
+      width: 100,
       type: "number",
       headerAlign: "left",
       sortable: false,
@@ -105,7 +108,7 @@ const Candidatos = () => {
           {'Ruta'}          
         </strong>
       ), 
-      width: 80,
+      width: 70,
       sortable: false,
       filterable: false,
       hideable: false,     
@@ -127,7 +130,7 @@ const Candidatos = () => {
     },
     {
       field: "pendingActivity",
-      width: 90,      
+      width: 80,      
       renderHeader: () => (
         <strong>
           {'Actividades Pendientes'}          
@@ -161,11 +164,42 @@ const Candidatos = () => {
     },   
   ];
 
+  /*const patientsProgramFetch = useFetch(
+    `http://localhost:8085/Management/`
+  );
+
+  const { loading, result} = patientsProgramFetch;
+
+  if (loading || !result){
+    console.log("Loading");
+    return (
+      <CircularProgress />
+    );
+  }  */
+
+  const dataFetchedRef = useRef(false);
+  
+  const [tableData, setTabledata] = useState([]);
+
+  useEffect(() => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+    fetch('http://localhost:8085/Management/')
+       .then((response) => response.json())
+       .then((data) => {
+          //console.log(data);
+          setTabledata(data);
+       })
+       .catch((err) => {
+          console.log(err.message);
+       });
+ }, []);
+
 
   return (        
          <Box
          m="10px 0 0 0"
-         height="65vh"         
+         height="60vh"         
          sx={{
           "& .css-1foozea-MuiDataGrid-root .MuiDataGrid-columnHeaderTitleContainer" :{
             whiteSpace: "pre-wrap",
@@ -194,7 +228,7 @@ const Candidatos = () => {
            }           
          }}
        >
-         <DataGrid rows={mockDataTeam} columns={columns} disableColumnMenu={true} />
+         <DataGrid rows={tableData} columns={columns} disableColumnMenu={true} />
        </Box> 
   );
 };
