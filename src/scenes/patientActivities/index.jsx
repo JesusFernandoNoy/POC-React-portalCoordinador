@@ -2,26 +2,27 @@ import { Box, Typography, useTheme, Tab, Tabs,Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataActivities } from "../../data/mockData";
+import React, { useState, useEffect, useRef} from 'react'
 
-const PatienActivities = () => {
+const PatienActivities = ({patientId}) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const columns = [
    
         {
-          field: "Activity",
+          field: "activityName",
           headerName: "Actividad",          
           align: "left",
           cellClassName: "name-column--cell",
         },
         {
-          field: "Frecuency",
+          field: "frequency",
           headerName: "Frecuencia",    
           width: 100,  
           cellClassName: "name-column--cell",
         },
         {
-          field: "dateAppointment",
+          field: "dateAppointmentStr",
           headerName: "Fecha última cita",
           width: 100,               
           cellClassName: "name-column--cell",
@@ -33,12 +34,30 @@ const PatienActivities = () => {
           cellClassName: "name-column--cell",
         },
         {
-          field: "ActivityState",          
+          field: "activityState",          
           headerName: "Estado de la Actividad", 
-          width: 80,      
+          width: 100,      
           cellClassName: "name-column--cell",
         }   
       ];
+
+  const dataFetchedRef = useRef(false);
+  
+  const [activityData, setActivityData] = useState([]);
+
+  useEffect(() => {
+      if (dataFetchedRef.current) return;
+      dataFetchedRef.current = true;
+      fetch('http://localhost:8085/activity/ActivitiesByPatient/'+patientId)
+        .then((response) => response.json())
+        .then((data) => {
+            //console.log(data);
+            setActivityData(data);
+        })
+        .catch((err) => {
+            console.log(err.message);
+        });
+  }, []);
 
       
       return (
@@ -71,7 +90,7 @@ const PatienActivities = () => {
            },
          }}
        >
-         <DataGrid rows={mockDataActivities} columns={columns} />
+         <DataGrid rows={activityData} columns={columns} />
        </Box>
       );    
   };

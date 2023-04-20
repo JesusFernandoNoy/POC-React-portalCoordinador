@@ -69,7 +69,7 @@ const Patient = () => {
             </Box>
           </Box>
           <Box height="350px" m="-20px 0 0 0">
-            <PatienActivity />
+            <PatienActivity patientId={location.state.patientid}/>
           </Box>
         </Box>        
       </Box>

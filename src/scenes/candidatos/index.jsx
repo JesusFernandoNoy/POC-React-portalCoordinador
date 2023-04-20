@@ -184,7 +184,7 @@ const Candidatos = () => {
   useEffect(() => {
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
-    fetch('http://localhost:8085/Management/')
+    fetch('http://localhost:8085/Management/OrderByHemoglobin')
        .then((response) => response.json())
        .then((data) => {
           //console.log(data);
