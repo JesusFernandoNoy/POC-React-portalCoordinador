@@ -1,10 +1,10 @@
 import { Box, useTheme, Button, CircularProgress } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mockData";
+//import { mockDataTeam } from "../../data/mockData";
 import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect, useRef} from 'react'
-
+//import React, { useState, useEffect, useRef} from 'react'
+import useFetch from "../../hooks/useFetch";
 
 
 const Candidatos = () => {  
@@ -164,8 +164,8 @@ const Candidatos = () => {
     },   
   ];
 
-  /*const patientsProgramFetch = useFetch(
-    `http://localhost:8085/Management/`
+  const patientsProgramFetch = useFetch(
+    `http://localhost:8085/Management/OrderByHemoglobin`
   );
 
   const { loading, result} = patientsProgramFetch;
@@ -175,9 +175,9 @@ const Candidatos = () => {
     return (
       <CircularProgress />
     );
-  }  */
+  }
 
-  const dataFetchedRef = useRef(false);
+  /*const dataFetchedRef = useRef(false);
   
   const [tableData, setTabledata] = useState([]);
 
@@ -193,7 +193,7 @@ const Candidatos = () => {
        .catch((err) => {
           console.log(err.message);
        });
- }, []);
+ }, []);*/
 
 
   return (        
@@ -228,7 +228,7 @@ const Candidatos = () => {
            }           
          }}
        >
-         <DataGrid rows={tableData} columns={columns} disableColumnMenu={true} />
+         <DataGrid rows={result} columns={columns} disableColumnMenu={true} />
        </Box> 
   );
 };
